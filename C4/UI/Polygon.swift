@@ -20,15 +20,15 @@
 import Foundation
 import CoreGraphics
 
-///  Polygon is a concrete subclass of Shape that has a special initialzer that creates a non-uniform shape made up of 3 or more points.
-open class Polygon: Shape {
+///  Polyshape is a concrete subclass of Shape that has a special initialzer that creates a non-uniform shape made up of 3 or more points.
+open class Polyshape: Shape {
 
-    /// Returns the array of points that make up the polygon.
+    /// Returns the array of points that make up the Polyshape.
     ///
     /// Assigning an array of Point values to this object will cause the receiver to update itself.
     ///
     /// ````
-    /// let p = Polygon()
+    /// let p = Polyshape()
     /// let a = Point()
     /// let b = Point(100,100)
     /// let c = Point(200,0)
@@ -42,28 +42,28 @@ open class Polygon: Shape {
         }
     }
 
-    ///  Initializes a default Polygon.
+    ///  Initializes a default Polyshape.
     public override init() {
         self.points = []
         super.init()
         fillColor = clear
     }
 
-    /// Initializes a new Polygon using the specified array of points.
+    /// Initializes a new Polyshape using the specified array of points.
     ///
-    /// Protects against trying to create a polygon with only 1 point (i.e. requires 2 or more points).
+    /// Protects against trying to create a Polyshape with only 1 point (i.e. requires 2 or more points).
     ///
     /// ````
     /// let a = Point()
     /// let b = Point(100,100)
     /// let c = Point(200,0)
-    /// let p = Polygon([a,b,c])
+    /// let p = Polyshape([a,b,c])
     /// p.center = canvas.center
     /// canvas.add(p)
     /// ````
     /// - parameter points: An array of Point structs.
     public init(_ points: [Point]) {
-        assert(points.count >= 2, "To create a Polygon you need to specify an array of at least 2 points")
+        assert(points.count >= 2, "To create a Polyshape you need to specify an array of at least 2 points")
         self.points = points
         super.init()
 
@@ -79,7 +79,7 @@ open class Polygon: Shape {
         adjustToFitPath()
     }
 
-    /// Initializes a new Polygon from data in a given unarchiver.
+    /// Initializes a new Polyshape from data in a given unarchiver.
     /// - parameter coder: An unarchiver object.
     required public init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

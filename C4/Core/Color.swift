@@ -58,7 +58,7 @@ public let C4Blue    = Color(red: 0.098, green: 0.271, blue: 1.0, alpha: 1.0)
 ///A Color object whose RGB value is 0.0, 0.0, 0.541 and whose alpha value is 1.0.
 public let C4Purple  = Color(red: 0.0, green: 0.0, blue: 0.541, alpha: 1.0)
 ///A Color object whose RGB value is 0.98, 0.98, 0.98 and whose alpha value is 1.0.
-public let C4Grey    = Color(red: 0.98, green: 0.98, blue: 0.98, alpha: 1.0)
+public let C4Grey    = Color(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0)
 
 /// This document describes the Color object which represents color and sometimes opacity (alpha value). You can use Color
 /// objects to store color data, and pass them between various C4 objects such as Shape, Image, etc.
@@ -337,7 +337,7 @@ public class Color {
 public extension UIColor {
     /// Initializes a UIColor object from a Color object.
     /// - parameter color: The C4 color object.
-    public convenience init?(_ color: Color) {
+    convenience init?(_ color: Color) {
         self.init(cgColor: color.cgColor)
     }
 }
@@ -345,7 +345,7 @@ public extension UIColor {
 public extension CIColor {
     /// Initializes a CIColor object from a Color object.
     /// - parameter color: The C4 color object.
-    public convenience init(_ color: Color) {
+    convenience init(_ color: Color) {
         self.init(cgColor: color.cgColor)
     }
 }

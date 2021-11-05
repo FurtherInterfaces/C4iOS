@@ -97,7 +97,7 @@ public struct Rect: Equatable, CustomStringConvertible {
     /// - parameter points: An array of Point coordinates
     public init(_ points: [Point]) {
         let count = points.count
-        assert(count >= 2, "To create a Polygon you need to specify an array of at least 2 points")
+        assert(count >= 2, "To create a Polyshape you need to specify an array of at least 2 points")
         var cgPoints = [CGPoint]()
         for i in 0..<count {
             cgPoints.append(CGPoint(points[i]))
@@ -301,7 +301,7 @@ public func inset(_ r: Rect, dx: Double, dy: Double) -> Rect {
 // MARK: - Casting to CGRect
 public extension CGRect {
     /// Initializes a CGRect from a Rect
-    public init(_ rect: Rect) {
+    init(_ rect: Rect) {
         self.init(origin: CGPoint(rect.origin), size: CGSize(rect.size))
     }
 }

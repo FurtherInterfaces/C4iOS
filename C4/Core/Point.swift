@@ -154,7 +154,7 @@ public func - (lhs: Point, rhs: Vector) -> Point {
 /// - parameter rhs: right-hand point
 ///
 /// - returns: The linear distance between two points
-public func distance(_ lhs: Point, rhs: Point) -> Double {
+public func distance(_ lhs: Point, _ rhs: Point) -> Double {
     let dx = rhs.x - lhs.x
     let dy = rhs.y - lhs.y
     return sqrt(dx*dx + dy*dy)
@@ -187,7 +187,7 @@ public func lerp(_ a: Point, _ b: Point, at: Double) -> Point {
 
 public extension CGPoint {
     ///Initializes a CGPoint from a Point
-    public init(_ point: Point) {
+    init(_ point: Point) {
         self.init(x: CGFloat(point.x), y: CGFloat(point.y))
     }
 }

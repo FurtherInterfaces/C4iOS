@@ -20,8 +20,8 @@
 import Foundation
 import CoreGraphics
 
-/// Triangle defines a concrete subclass of Polygon whose shape is a closed triangle.
-public class Triangle: Polygon {
+/// Triangle defines a concrete subclass of Polyshape whose shape is a closed triangle.
+public class Triangle: Polyshape {
 
     /// Initializes a new Triangle using the specified array of points.
     ///
@@ -35,7 +35,7 @@ public class Triangle: Polygon {
         self.close()
     }
 
-    /// Initializes a new Polygon from data in a given unarchiver.
+    /// Initializes a new Polyshape from data in a given unarchiver.
     /// - parameter coder: An unarchiver object.
     required public init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -20,10 +20,10 @@
 import Foundation
 import CoreGraphics
 
-///Line is a is a concrete subclass of Polygon that contains only two points.
+///Line is a is a concrete subclass of Polyshape that contains only two points.
 ///
 ///This subclass overrides the `points` variable so that it can only ever have 2 points, and also has an `endPoints` variable that allows the user to edit either end of the line (animatable).
-public class Line: Polygon {
+public class Line: Polyshape {
 
     /// The end points the receiver's line. Animatable.
     ///
@@ -102,9 +102,9 @@ public class Line: Polygon {
         }
     }
 
-    /// Initializes a new Polygon using the specified array of points.
+    /// Initializes a new Polyshape using the specified array of points.
     ///
-    /// Protects against trying to create a polygon with only 1 point (i.e. requires 2 points).
+    /// Protects against trying to create a Polyshape with only 1 point (i.e. requires 2 points).
     /// Trims point array if count > 2.
     ///
     /// ````
@@ -152,7 +152,7 @@ public class Line: Polygon {
         self.init(points)
     }
 
-    /// Initializes a new Polygon from data in a given unarchiver.
+    /// Initializes a new Polyshape from data in a given unarchiver.
     /// - parameter coder: An unarchiver object.
     required public init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

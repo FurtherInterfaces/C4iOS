@@ -20,18 +20,18 @@
 import Foundation
 import CoreGraphics
 
-///RegularPolygon is a is a concrete subclass of Polygon that defines a shape whose sides are uniform (e.g. pentagon, octagon, etc.).
+///RegularPolyshape is a is a concrete subclass of Polyshape that defines a shape whose sides are uniform (e.g. pentagon, octagon, etc.).
 ///
 /// This class defines two variables called `sides` and `phase` that represent the number of sides and the initial rotation of the shape (respectively). The default shape is a hexagon.
-public class RegularPolygon: Polygon {
-    /// Returns the number of sides in the polygon.
+public class RegularPolyshape: Polyshape {
+    /// Returns the number of sides in the Polyshape.
     ///
     /// Assigning a value to this property will change the number of sides and cause the receiver to automatically update its
     /// path.
     ///
     /// ````
     /// let f = Rect(100,100,100,100)
-    /// var p = RegularPolygon(frame: f)
+    /// var p = RegularPolyshape(frame: f)
     /// p.sides = 3
     /// canvas.add(p)
     /// ````
@@ -51,7 +51,7 @@ public class RegularPolygon: Polygon {
     ///
     /// ````
     /// let f = Rect(100,100,100,100)
-    /// var p = RegularPolygon(frame: f)
+    /// var p = RegularPolyshape(frame: f)
     /// p.phase = Double.pi / 2.0
     /// canvas.add(p)
     /// ````
@@ -62,7 +62,7 @@ public class RegularPolygon: Polygon {
         }
     }
 
-    /// Initializes a new RegularPolygon.
+    /// Initializes a new RegularPolyshape.
     ///
     /// Default values are are sides = 6 (i.e. a hexagon), phase = 0.
     convenience public init(center: Point, radius: Double = 50.0, sides: Int = 6, phase: Double = 0.0) {
@@ -80,6 +80,6 @@ public class RegularPolygon: Polygon {
     }
 
     internal override func updatePath() {
-        self.path = RegularPolygon(center: center, radius: width/2.0, sides: self.sides, phase: self.phase).path
+        self.path = RegularPolyshape(center: center, radius: width/2.0, sides: self.sides, phase: self.phase).path
     }
 }

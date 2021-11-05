@@ -44,7 +44,7 @@ extension Shape {
         adjustToFitPath()
     }
 
-    /// Appends a polygon to the end of the receiver's path.
+    /// Appends a Polyshape to the end of the receiver's path.
     ///
     /// ````
     /// var l = Line([Point(),Point(100,100)])
@@ -54,13 +54,13 @@ extension Shape {
     ///     let y = random01()*100.0
     ///     points.append(Point(x,y))
     /// }
-    /// l.addPolygon(points: points, closed: true)
+    /// l.addPolyshape(points: points, closed: true)
     /// canvas.add(l)
     /// ````
     ///
-    /// - parameter points: An array of Point structs that defines the new polygon
-    /// - parameter closed: If true then the polygon will have an additional line between its first and last points
-    public func addPolygon(points: [Point], closed: Bool = true) {
+    /// - parameter points: An array of Point structs that defines the new Polyshape
+    /// - parameter closed: If true then the Polyshape will have an additional line between its first and last points
+    public func addPolyshape(points: [Point], closed: Bool = true) {
         var newPath = path
         if newPath == nil {
             newPath = Path()

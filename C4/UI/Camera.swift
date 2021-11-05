@@ -26,6 +26,7 @@ public enum CameraPosition: Int {
     case front
 }
 
+@available(macCatalyst 14.0, *)
 public class Camera: View {
     public var capturedImage: Image?
     public var quality = AVCaptureSession.Preset.photo
@@ -66,7 +67,7 @@ public class Camera: View {
         previewLayer.backgroundColor = clear.cgColor
         previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
 
-        orientationObserver = on(event: NSNotification.Name.UIDeviceOrientationDidChange) { [unowned self] in
+        orientationObserver = on(event: UIDevice.orientationDidChangeNotification) { [unowned self] in
             self.updateOrientation()
         }
     }
@@ -191,7 +192,7 @@ public class Camera: View {
             return image
         }
 
-        var orientation: UIImageOrientation
+        var orientation: UIImage.Orientation
         let shouldFlip = position == .front
 
         switch videoOrientation {
@@ -203,6 +204,8 @@ public class Camera: View {
             orientation = shouldFlip ? .leftMirrored : .right
         case .portraitUpsideDown:
             orientation = shouldFlip ? .rightMirrored : .left
+        @unknown default:
+            orientation = .up
         }
         return UIImage(cgImage: cgimg, scale: image.scale, orientation: orientation)
     }
@@ -212,6 +215,7 @@ public class Camera: View {
     }
 }
 
+@available(macCatalyst 14.0, *)
 class PreviewLayer: AVCaptureVideoPreviewLayer {
 
 }

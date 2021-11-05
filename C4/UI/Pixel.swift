@@ -19,10 +19,10 @@
 
 ///  A structure of 4 8-bit values that represent r, g, b, a values of a single point (i.e. a pixel)
 public struct Pixel {
-    var r: UInt8 = 0
-    var g: UInt8 = 0
-    var b: UInt8 = 0
-    var a: UInt8 = 255
+    public var r: UInt8 = 0
+    public var g: UInt8 = 0
+    public var b: UInt8 = 0
+    public var a: UInt8 = 255
 
     ///  Initializes a pixel whose color is a specified gray.
     ///

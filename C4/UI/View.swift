@@ -31,6 +31,8 @@ extension NSValue {
 open class View: NSObject {
     /// A UIView. Internally, View wraps and provides access to an internal UIView.
     open var view: UIView = LayerView()
+    
+    public var children: [View] = [View]()
 
     /// The current rotation value of the view. Animatable.
     /// - returns: A Double value representing the cumulative rotation of the view, measured in Radians.
@@ -314,6 +316,7 @@ open class View: NSObject {
             view.addSubview(v)
         } else if let v = subview as? View {
             view.addSubview(v.view)
+            children.append(v)
         } else {
             fatalError("Can't add subview of class `\(type(of: subview))`")
         }
@@ -375,9 +378,9 @@ open class View: NSObject {
     /// - parameter subview: The subview to move to the back.
     public func sendToBack<T>(_ subview: T?) {
         if let v = subview as? UIView {
-            view.sendSubview(toBack: v)
+            view.sendSubviewToBack(v)
         } else if let v = subview as? View {
-            view.sendSubview(toBack: v.view)
+            view.sendSubviewToBack(v.view)
         } else {
             fatalError("Can't operate on subview of class `\(type(of: subview))`")
         }
@@ -387,9 +390,9 @@ open class View: NSObject {
     /// - parameter subview: The subview to move to the front.
     public func bringToFront<T>(_ subview: T?) {
         if let v = subview as? UIView {
-            view.bringSubview(toFront: v)
+            view.bringSubviewToFront(v)
         } else if let v = subview as? View {
-            view.bringSubview(toFront: v.view)
+            view.bringSubviewToFront(v.view)
         } else {
             fatalError("Can't operate on subview of class `\(type(of: subview))`")
         }

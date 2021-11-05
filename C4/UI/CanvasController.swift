@@ -21,14 +21,14 @@ import UIKit
 
 /// The CanvasController class provides the infrastructure for managing the views of your iOS apps. A canvas controller manages a set of views that make up a portion of your app’s user interface. It is responsible for loading and disposing of those views, for managing interactions with those views, and for coordinating responses with any appropriate data objects. Canvas controllers also coordinate their efforts with other controller objects—including other view controllers—and help manage your app’s overall interface.
 open class CanvasController: UIViewController {
-
+    
     /// Called after the controller's view is loaded into memory.
     ///
     /// This override disables implicit CALayer animations, calls `setup()` and then re-enables animations.
     ///
     /// You should **not** override this method, instead use **setup()**.
     open override func viewDidLoad() {
-        canvas.backgroundColor = C4Grey
+        canvas.backgroundColor = C4Pink
         ShapeLayer.disableActions = true
         self.setup()
         ShapeLayer.disableActions = false
